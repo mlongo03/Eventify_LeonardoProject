@@ -1,0 +1,12 @@
+<a [routerLink]="['/event-info', event.id]">
+	<mat-card class="event-card" [style.background-image]="'url(' + event.imageURL + ')'">
+		<mat-card-header>
+			<mat-card-title class="title">{{ event.title }}</mat-card-title>
+			<p class="category" [ngStyle]="{'background-color': categoryColors[event.category]}">{{ event.category }}</p>
+		</mat-card-header>
+		<mat-card-footer class="footer">
+			<p class="address">{{ event.address }}
+			<p class="time">{{ event.date | date: 'dd/MM/yyyy HH:mm' }}
+		</mat-card-footer>
+	</mat-card>
+</a>

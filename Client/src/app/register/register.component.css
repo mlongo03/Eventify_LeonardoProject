@@ -1,0 +1,159 @@
+section {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 80vh;
+	width: 100%;
+	background: url('/assets/background.jpeg');
+	background-position: center;
+	background-size: cover;
+	overflow-y: auto;
+}
+
+.form-box {
+	display: flex;
+	width: 100%;
+	max-width: 800px;
+	height: auto;
+	border: 2px solid rgba(255, 255, 255, 0.5);
+	border-radius: 20px;
+	backdrop-filter: blur(15px);
+	background: rgba(92, 80, 80, 0.707);
+	align-items: center;
+	justify-content: center;
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+.form-space {
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+h2 {
+	margin-top: 20px;
+	padding: 20px;
+	font-size: 2em;
+	font-weight: 800;
+	color: #fff;
+	text-align: center;
+}
+
+.inputbox {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 100%;
+	margin-top: 5%;
+}
+
+.input-container {
+	display: flex;
+	align-items: center;
+	width: 100%;
+}
+
+	.input-container input {
+		width: 100%;
+		height: 50px;
+		background: transparent;
+		border: none;
+		outline: none;
+		font-size: 1em;
+		color: #fff;
+		border-bottom: 2px solid #fff;
+	}
+
+	label {
+		color: #fff;
+		text-align: left;
+	}
+
+.inputbox.date input {
+	text-align: center;
+}
+
+.password-container {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	color: #fff;
+}
+
+	.bi {
+		cursor: pointer;
+	}
+
+	.inputbox.upload input {
+		border-bottom: none;
+	}
+
+	.inputbox.upload label {
+		margin-bottom: 10px;
+	}
+
+	.inputbox.privacy {
+		display: flex;
+		align-items: center;
+	flex-direction: row;
+	margin-bottom: 20px;
+}
+
+.inputbox.privacy .input-container .checkbox {
+	transform: scale(0.3);
+	cursor: pointer;
+	margin: 0;
+}
+
+button {
+	width: 100%;
+	height: 40px;
+	border-radius: 40px;
+	background: #FF6700;
+	color: #fff;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	font-size: 1em;
+	font-weight: 600;
+	margin-bottom: 5%;
+}
+
+.alert {
+	width: 70%;
+	color: #FF6700;
+	align-items: center;
+	text-align: center;
+	font-size: 0.7rem;
+	font-weight: 500;
+	margin-left: 20px;
+	margin-bottom: 0;
+	padding: 0;
+}
+
+.photo-alert {
+	width: 70%;
+	color:  #FF6700;
+	text-align: center;
+	padding-bottom: 20px;
+	padding-left: 55px;
+	font-size: 0.9rem;
+	font-weight: 500;
+}
+
+@media screen and (max-width: 768px) {
+	.form-box {
+		max-width: 300px;
+		align-items: center;
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+
+	.inputbox {
+		width: 100%;
+	}
+
+	.bi {
+		padding-right: 20px;
+	}
+}

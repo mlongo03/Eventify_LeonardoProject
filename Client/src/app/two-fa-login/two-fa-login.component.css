@@ -1,0 +1,119 @@
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    width: 100%;
+    background: url('/assets/background.jpeg') no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 400px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    text-align: center;
+    padding: 10px;
+}
+
+h2 {
+    width: 80%;
+    font-size: 1.5em;
+    font-weight: 800;
+    color: #fff;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.inputbox.otp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputbox.otp input {
+    width: 30%;
+    height: 40px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    text-align: center;
+    padding: 10px;
+    color: #fff;
+    border-bottom: 2px solid #fff;
+
+}
+
+.inputbox {
+    width: 80%;
+    text-align: left;
+    margin: 1rem 0;
+    position: relative;
+}
+
+.inputbox label {
+    display: block;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+button {
+    width: 80%;
+    height: 40px;
+    border-radius: 20px;
+    background: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.alert {
+    color: red;
+    font-size: 1em;
+    text-align: center;
+}
+
+.resend-email {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.resend-email:hover {
+    color: crimson;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.resend-email label {
+    color: green;
+    padding-left: 20px;
+}
+
+.clicked {
+    color: crimson;
+    text-decoration: none;
+}
+
+.error-message {
+    color:red;
+    text-align: center;
+    border: none;
+}
+
+.inputbox.error {
+    border: none;
+}

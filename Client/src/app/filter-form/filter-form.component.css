@@ -1,0 +1,20 @@
+section {
+	display: flex;
+	width: 100%;
+	min-height: 80vh;
+	flex-direction: column;
+	padding-top: 20px;
+}
+
+.custom-input {
+	width: 100%; /* Imposta la larghezza desiderata per i campi di input */
+	margin-bottom: 3px; /* Aggiunge spazio tra i campi di input, se necessario */
+  }
+
+  .select-dropdown {
+	transform: translateY(0) !important;
+  }
+
+  .example-full-width{
+	margin-right: 20px;
+  }

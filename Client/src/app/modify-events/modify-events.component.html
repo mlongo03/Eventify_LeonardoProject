@@ -1,0 +1,71 @@
+<section>
+	<div class="event">
+		<h2>Edit event</h2>
+		<form class="form" [formGroup]="eventForm" action="" (ngSubmit)="onSubmit()">
+			<div class="inputbox">
+				<input matInput type="text" [(ngModel)]="newEvent.name" id="name" formControlName="name"
+				placeholder="Insert a title" (focus)="fieldFocused = true" (blur)="fieldFocused = false; fieldTouched = true">
+				<div class="alert" *ngIf="(fieldFocused || fieldTouched) && eventForm.get('name')?.hasError('required')">
+					Title missing!
+				</div>
+			</div>
+			<div class="inputbox">
+				<textarea class="description" matInput [(ngModel)]="newEvent.description" id="description" formControlName="description"
+				placeholder="Give your event a description"></textarea><br>
+			</div>
+			<div class="inputbox">
+				<input matInput [(ngModel)]="newEvent.address" id="place" formControlName="place"(focus)="fieldFocused2 = true" (blur)="fieldFocused2 = false; fieldTouched2 = true">
+				<div class="alert" *ngIf="(fieldFocused2 || fieldTouched2) && eventForm.get('place')?.hasError('required')">
+					Address missing!
+				</div>
+				<div class="alert" *ngIf="eventForm.get('place')?.hasError('pattern')">
+					Please specify civic, CAP and city! (Via Marsala, 29H, 00185 Rome RM)
+				</div>
+			</div>
+			<div class="inputbox">
+				<input class="date-time" type="datetime-local" id="dateTime" [(ngModel)]="newEvent.dateTime" formControlName="dateTime">
+				<div class="alert" *ngIf="eventForm.get('dateTime')?.hasError('dateRange')">
+					Please select a date within 1 year
+				</div>
+			</div>
+			<div class="inputbox">
+				<select class="category" id="category" [(ngModel)]="newEvent.category" formControlName="category"
+				(focus)="fieldFocused3 = true" (blur)="fieldFocused3 = false; fieldTouched3 = true">
+					<option value="" [selected]="!newEvent.category" disabled selected>Select a category</option>
+					<option value="PARTY">Party</option>
+					<option value="GYM">Gym</option>
+					<option value="ROLEGAME">Role Game</option>
+					<option value="SPORT">Sport</option>
+					<option value="MEETING">Meeting</option>
+					<option value="CONFERENCE">Conference</option>
+					<option value="NETWORKING">Networking</option>
+					<option value="HOBBY">Hobby</option>
+					<option value="MUSIC">Music</option>
+					<option value="BUSINESS">Business</option>
+					<option value="FOOD">Food</option>
+					<option value="NIGHTLIFE">Nightlife</option>
+					<option value="HEALTH">Health</option>
+					<option value="HOLIDAYS">Holidays</option>
+				</select>
+				<div class="alert" *ngIf="(fieldFocused3 || fieldTouched3) && eventForm.get('category')?.hasError('required')">
+					Please select a category for the event
+				</div>
+			</div>
+			<div class="image-preview-container">
+				<div class="image-preview" *ngFor="let image of imageFiles; let i = index">
+					<img [src]="image" alt="Image Preview">
+					<button mat-icon-button color="primary" (click)="removeImage(i)">
+						<mat-icon>close</mat-icon>
+					</button>
+				</div>
+			</div>
+
+			<div class="inputbox">
+				<input class="photo" type="file" name="images" accept="image/*" (change)="onFileChange($event)" multiple formControlName="photo">
+			</div>
+			<div class="actions">
+				<button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+			</div>
+		</form>
+	</div>
+</section>

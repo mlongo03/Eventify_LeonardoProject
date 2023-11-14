@@ -1,0 +1,13 @@
+<section>
+	<a class="filter-icon" mat-icon-button (click)="addFilter()">
+		<mat-icon class="icon">filter_list</mat-icon>
+	</a>
+	<swiper-container class="swiper" navigation="true" pagination="true" pagination-clickable="true" slides-per-view= 'auto' free-mode="true" space-between="30">
+		<swiper-slide class="slide" *ngFor="let event of events">
+			<app-event-card class="event-card" [event]="event"></app-event-card>
+		</swiper-slide>
+		<swiper-slide class="slide">
+			<app-event-blank class="blank-card"></app-event-blank>
+		</swiper-slide>
+	</swiper-container>
+</section>

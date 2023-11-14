@@ -1,0 +1,11 @@
+com.eventify.app
+com.eventify.app.config
+com.eventify.app.controller.api
+com.eventify.app.exception
+com.eventify.app.model
+com.eventify.app.model.enums
+com.eventify.app.model.json
+com.eventify.app.repository
+com.eventify.app.service
+com.eventify.app.service.interfaces
+com.eventify.app.validator

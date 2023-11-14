@@ -1,0 +1,46 @@
+<section>
+	<mat-form-field class="custom-input">
+	  <mat-label>Title</mat-label>
+	  <input matInput type="text" [(ngModel)]="filtro.Titolo" />
+	  <button *ngIf="filtro.Titolo" matSuffix mat-icon-button aria-label="Clear" (click)="filtro.Titolo = ''">
+		<mat-icon>close</mat-icon>
+	  </button>
+	</mat-form-field>
+	<mat-form-field class="custom-input">
+	  <mat-label>City</mat-label>
+	  <input matInput type="text" [(ngModel)]="filtro.Luogo" />
+	  <button *ngIf="filtro.Luogo" matSuffix mat-icon-button aria-label="Clear" (click)="filtro.Luogo = ''">
+		<mat-icon>close</mat-icon>
+	  </button>
+	</mat-form-field>
+	<mat-form-field class="custom-input">
+		<mat-form-field class="example-full-width">
+		  <mat-label>From</mat-label>
+		  <input matInput [matDatepicker]="fromPicker" (dateInput)="filtro.startDate = $event.value">
+		  <mat-hint>MM/DD/YYYY</mat-hint>
+		  <mat-datepicker-toggle matIconSuffix [for]="fromPicker">
+			<mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+		  </mat-datepicker-toggle>
+		  <mat-datepicker #fromPicker></mat-datepicker>
+		</mat-form-field>
+		<mat-form-field class="example-full-width">
+		  <mat-label>At</mat-label>
+		  <input matInput [matDatepicker]="toPicker" (dateInput)="filtro.endDate = $event.value">
+		  <mat-hint>MM/DD/YYYY</mat-hint>
+		  <mat-datepicker-toggle matIconSuffix [for]="toPicker">
+			<mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+		  </mat-datepicker-toggle>
+		  <mat-datepicker #toPicker></mat-datepicker>
+		</mat-form-field>
+	  </mat-form-field>	  
+	<mat-form-field class="custom-input">
+	  <mat-label>Category</mat-label>
+	  <mat-select [formControl]="categoria" multiple [(ngModel)]="filtro.Categoria">
+		<mat-option *ngFor="let categoria of categoriaList" [value]="categoria">{{ categoria }}</mat-option>
+	  </mat-select>
+	</mat-form-field>
+	<button mat-raised-button color="primary" [routerLink]="['/event-board']" [queryParams]="{ filtro: filtro | json }">Apply</button>
+	<p></p>
+	<p></p>
+	<button mat-raised-button color="accent" routerLink="/event-board">Cancel</button>
+  </section>

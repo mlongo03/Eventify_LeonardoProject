@@ -1,0 +1,50 @@
+.blank-card {
+	display: flex;
+	width: 200px;
+	height: 200px;
+	border-radius: 10px;
+	box-shadow: -1px 10px 29px 0px rgba(0, 0, 0, 0.5);
+	cursor: pointer;
+	color: white;
+	border: solid black;
+	top: 20%;
+}
+
+	.blank-card:hover{
+		box-shadow: -1px 10px 29px 0px rgba(0,0,0,0.8);
+	}
+
+	.blank-content {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		margin-top: 70px;
+		font-size: 20px;
+	}
+
+	.giant-plus {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: background-color 0.3s, color 0.3s;
+		font-size: 500%;
+		color: rgba(0, 0, 0, 0.566);
+	}
+
+		.giant-plus:hover {
+			color: rgb(38, 0, 255);
+		}
+
+@media screen and (max-width: 768px) {
+
+	.blank-card {
+		width: 150px;
+		height: 150px;
+		top: 30%;
+	}
+	
+	.blank-content {
+		margin-top: 45px;
+	}
+}

@@ -1,0 +1,42 @@
+<nav class="navbar">
+	<div class="title">
+		<img [src]="isMobile ? titleMobile : titleWeb" alt="Image">
+	</div>
+	<button mat-icon-button (click)="navigateTo('/home')">
+		<mat-icon class="icon">home</mat-icon>
+	</button>
+	<button mat-icon-button routerLink="/event-board">  <!-- (click)="updateRedirection('/event-board'); authenticate() -->
+		<mat-icon class="icon">event</mat-icon>
+	</button>
+	<div *ngIf="this.getIsLogged()">
+		<button mat-icon-button [matMenuTriggerFor]="notifiche" (menuOpened)="SetNotificationAsRead(); resetNumeroNotifiche()">
+			<mat-icon class="icon" [matBadge]="numeroNotifiche" matBadgeSize="small"
+			matBadgeColor="primary" [matBadgeHidden]="numeroNotifiche === 0">notifications</mat-icon>
+		</button>
+		<div style="max-height: 300px; overflow-y: scroll;" [hidden]="!this.getIsLogged()">
+			<mat-menu #notifiche="matMenu">
+				<mat-list class="custom-list">
+					<button mat-menu-item *ngFor="let notification of notifications">
+						{{ notification.message }} - {{ notification.dateTime }}
+					</button>
+				</mat-list>
+			</mat-menu>
+		</div>
+	</div>
+	<button mat-icon-button class="user-menu" [matMenuTriggerFor]="menu">
+		<mat-icon class="user" *ngIf="!this.getIsLogged(); else loggedIcon">person</mat-icon>
+		<ng-template #loggedIcon>
+			<img class="photo" [src]="profilePhoto" alt="">
+		</ng-template>
+	</button>
+	<mat-menu #menu="matMenu">
+		<a mat-menu-item (click)="navigateTo('/home')">Home</a>
+		<a mat-menu-item routerLink="/event-board">Board</a>  <!-- (click)="updateRedirection('/event-board')"; authenticate() -->
+		<a mat-menu-item [hidden]="!this.getIsLogged()" (click)="navigateToMyEvents()">My Events</a>
+		<a mat-menu-item [hidden]="!this.getIsLogged()" (click)="navigateToRegisteredEvents()">Registered Event</a>
+		<a mat-menu-item [hidden]="this.getIsLogged()" (click)="navigateTo('/login')">Sign in</a>
+		<a mat-menu-item [hidden]="this.getIsLogged()" (click)="navigateTo('/register')">Register</a>
+		<a mat-menu-item [hidden]="!this.getIsLogged()" (click)="navigateTo('/profile')">Profile</a>
+		<a mat-menu-item [hidden]="!this.getIsLogged()" (click)="logout()">Log out</a>
+	</mat-menu>
+</nav>

@@ -1,0 +1,22 @@
+<section>
+	<form [formGroup]="twoFAForm" class="container" (ngSubmit)="onSubmit()">
+		<h2>Insert the OTP code found in the email you just received</h2>
+		<div class="inputbox otp">
+			<input type="text" id="otp" name="otp" required placeholder="" formControlName="otp">
+			<label for="otp">OTP code</label>
+			<div class="alert" *ngIf="twoFAForm.get('otp')?.hasError('pattern')">
+				Invalid OTP
+			</div>
+			<div class="inputbox error">
+				<div class="error-message" *ngIf="showError">
+					{{ errorMessage }}
+				</div>
+			</div>
+		</div>
+		<div class="resend-email">
+			<a [class.email.sent]="emailSent" (click)="resendEmail()" [class.clicked]="emailSent">Resend email</a>
+			<label *ngIf="emailSent">Email sent</label>
+		</div>
+		<button type="submit" [disabled]="twoFAForm.invalid">Sign in</button>
+	</form>
+</section>

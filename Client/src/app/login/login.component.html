@@ -1,0 +1,36 @@
+<section>
+	<div class="form-box">
+		<div class="form-value">
+			<form [formGroup]="loginForm" action="" (ngSubmit)="onSubmit()">
+				<h2>Login</h2>
+				<div class="inputbox">
+					<mat-icon class="icon">email</mat-icon>
+					<input type="email" formControlName="email" required placeholder="">
+					<label for="email">Email</label>
+				</div>
+				<div class="inputbox">
+					<mat-icon class="icon" (click)="togglePasswordVisibility()">
+						{{ isPasswordVisible ? 'visibility_off' : 'visibility' }}
+					</mat-icon>
+					<input type="{{ isPasswordVisible ? 'text' : 'password' }}" formControlName="password" required
+						placeholder="">
+					<label for="password">Password</label>
+				</div>
+				<div class="forget">
+					<label for=""><a (click)="PasswordForgotten()">
+						Forgot Password?
+					</a></label>
+				</div>
+				<button type="submit" [disabled]="!loginForm.valid">Log in</button>
+				<div class="inputbox error">
+					<div class="error-message" *ngIf="showError">
+						{{ errorMessage }}
+					</div>
+				</div>
+				<div class="register">
+					<p>Don't have an account? <a (click)="Register()">Register here</a></p>
+				</div>
+			</form>
+		</div>
+	</div>
+</section>

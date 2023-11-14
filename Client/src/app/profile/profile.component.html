@@ -1,0 +1,60 @@
+<section>
+	<mat-card class="profile">
+		<mat-card-header class="header">
+			<mat-card-title-group>
+				<mat-card-title class="title">Profile info:</mat-card-title>
+				<img mat-card-md-image class="photo" [src]="profilePhoto">
+			</mat-card-title-group>
+		</mat-card-header>
+		<mat-card-content class="info">
+			<form [formGroup]="profileForm" action="" (ngSubmit)="SaveChanges()">
+				<div class="inputbox">
+					<input type="text" id="firstname" [(ngModel)]="firstname" [readonly]="!modifyPermit"
+					[ngClass]="{'input-modify': modifyPermit}" formControlName="firstname">
+					<div class="alert" *ngIf="profileForm.get('firstname')?.hasError('pattern')">
+						Invalid first name!
+					</div><br>
+				</div>
+				<div class="inputbox">
+					<input type="text" id="lastname" [(ngModel)]="lastname" [readonly]="!modifyPermit"
+					[ngClass]="{'input-modify': modifyPermit}" formControlName="lastname">
+					<div class="alert" *ngIf="profileForm.get('lastname')?.hasError('pattern')">
+						Invalid last name!
+					</div><br>
+				</div>
+				<div class="inputbox">
+					<input type="email" id="email" [ngModel]="oldEmail"
+					[readonly]="!modifyPermit" [ngClass]="{'input-modify': modifyPermit}"
+					formControlName="email" (ngModelChange)="EmailChange($event)">
+					<div class="alert" *ngIf="profileForm.get('email')?.hasError('pattern')">
+						Invalid email!
+					</div><br>
+				</div>
+				<div class="inputbox">
+					<input type="text" id="date" value="{{date}}" [(ngModel)]="date" readonly>
+				</div>
+				<div class="photo-alert" [hidden]="!modifyPermit">
+					Upload a new profile photo:
+				</div>
+				<input type="file" class="file" #fileInput [hidden]="!modifyPermit"
+				accept="image/*" (change)="UploadNewPhoto($event)">
+			</form>
+		</mat-card-content>
+		<div class="button">
+			<button mat-fab class="modify-button" (click)="ModifyProfile()"
+			[style.display]="showButton ? 'flex' : 'none'">
+				<mat-icon>edit</mat-icon>
+			</button>
+			<button type="submit" [disabled]="!profileForm.valid"
+			mat-fab class="confirm-button" [style.display]="!showButton ? 'flex' : 'none'"
+			(click)="SaveChanges()">
+				<mat-icon>done</mat-icon>
+			</button>
+			<button mat-fab class="delete-button" (click)="ReloadPage()"
+			 [style.display]="!showButton ? 'flex' : 'none'">
+				<mat-icon>clear</mat-icon>
+			</button>
+		</div>
+	</mat-card>
+</section>
+

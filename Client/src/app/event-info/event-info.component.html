@@ -1,0 +1,52 @@
+<section>
+	<mat-card class="event-card">
+		<mat-card-header>
+			<mat-card-title class="title">{{ event.title }}</mat-card-title>
+		</mat-card-header>
+		<swiper-container style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper"
+		navigation="true" autoplay-delay="2500" autoplay-disable-on-interaction="false" slides-per-view='auto'>
+		<ng-container *ngIf="event.imageURL">
+		  <swiper-slide class="slide" lazy="true" *ngFor="let imageURL of event.imageURL">
+			<img loading="lazy" [src]="imageURL">
+		  </swiper-slide>
+		</ng-container>
+	  </swiper-container>
+		<mat-card-content class="content">
+			<p class="category">{{ event.category }}</p>
+			<p class="description">{{ event.description }}</p>
+			<div class="address-container">
+				<p class="time">{{ event.date | date: 'dd/MM/yyyy HH:mm' }}</p>
+				<p class="address">{{ event.address }}</p>
+			</div>
+			<!-- link google maps -->
+		</mat-card-content>
+		<mat-card-footer class="footer">
+			<div class="button-container">
+				<button mat-fab class="join-button" [ngClass]="getButtonClass()" (click)="toggleRegistration()">
+					<mat-icon class="icon">{{ isRegistered ? 'clear' : 'done' }}</mat-icon>
+				</button>
+				<button mat-fab class="people-button" [matMenuTriggerFor]="partecipanti">
+					<mat-icon class="icon">people</mat-icon>
+				  </button>
+				  <div style="max-height: 300px; overflow-y: scroll;">
+					<mat-menu #partecipanti="matMenu">
+					  <mat-list class="partecipant-list">
+						<mat-list-item *ngFor="let participant of event.participants" style="display: block;">
+						  {{ participant.name }}
+						</mat-list-item>
+					  </mat-list>
+					</mat-menu>
+				  </div>
+				  <!-- <button mat-fab class="people-button" (click)="openDialog()">
+					<mat-icon>people</mat-icon>
+				</button> -->
+				<button mat-fab class="edit-button" (click)="editEvent()" *ngIf="checkMyEvents()">
+					<mat-icon class="icon">edit</mat-icon>
+				</button>
+			<button mat-fab class="delete-button" (click)="deleteEvent()" *ngIf="checkMyEvents()">
+				<mat-icon class="icon">delete</mat-icon>
+			  </button>
+		</div>
+	</mat-card-footer>
+	</mat-card>
+</section>

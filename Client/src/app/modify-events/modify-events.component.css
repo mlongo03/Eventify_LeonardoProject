@@ -1,0 +1,112 @@
+.event {
+	max-height: 90%;
+	width: 60%;
+	display: block;
+	color: white;
+	border-radius: 20px;
+	background: #3A6EA5;
+	backdrop-filter: blur(15px);
+	align-items: center;
+	padding: 20px;
+}
+
+
+section {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	min-height: 80vh;
+}
+
+
+  h2 {
+	font-size: 2em;
+	color: #ffffff;
+	text-align: center;
+	font-weight: 800;
+	margin-bottom: 20px;
+  }
+
+  .inputbox {
+	display: flex;
+	margin-bottom: 20px;
+  }
+
+  input,
+  .description,
+  .category,
+  .date-time,
+  .photo {
+	width: 100%;
+	background-color: #c0c0c040;
+	border: 1px solid white;
+	border-radius: 10px;
+	padding-left: 10px;
+	color: white;
+  }
+
+  input::placeholder,
+  .description::placeholder {
+	color: #fff;
+  }
+
+  .category,
+  .date-time {
+	width: 50%;
+  }
+
+  option {
+	color: black;
+  }
+
+  .image-preview-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-top: 10px;
+  }
+
+  .image-preview {
+    position: relative;
+    display: inline-block;
+}
+
+.remove-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 18px;
+    color: primary;
+}
+
+button {
+	height: 40px;
+	width: 30%;
+	cursor: pointer;
+	font-size: 18px;
+	font-weight: 800;
+}
+
+
+img {
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: 5px;
+}
+
+.actions {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
